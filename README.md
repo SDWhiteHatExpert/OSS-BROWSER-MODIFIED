@@ -2,7 +2,7 @@
 Quick start
 Ossbrowser is a graphical management tool developed by Alibaba Cloud. It provides features similar to those of Windows Explorer. Using ossbrowser, you can view, upload, download, and manage items with ease.
 
-README of Chinese
+README 
 Platform
 Windows 7 above, Linux and Mac. We do not recommend using WindowsXP and WindowServer
 
