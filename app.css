@@ -1,0 +1,42 @@
+.red {
+    color: red;
+}
+
+.mg4 {
+    margin: 16px !important;
+}
+
+#app-container {flex-grow: calc(10);}
+
+
+
+.red {
+    background-color: brown;
+}
+
+
+.element {
+    padding-left: 200;
+    padding-right: 123;
+    padding: 300;
+    padding: auto;
+    display: flex;
+}
+
+.element.container {
+    enable-background: accumulate;
+    color: black;
+    container: flex {500px};
+    border: solid #ccc;
+    box-shadow: inset {(200px)}
+}
+
+@-webkit-keyframes {
+    0%   {{transform: rotate(-360deg)}}
+    100% {{transform: rotate(720deg)}}
+    .loading {animation: spin {1s linear infinite}}
+
+
+
+
+}

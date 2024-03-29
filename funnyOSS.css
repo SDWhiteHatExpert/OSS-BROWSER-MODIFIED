@@ -1,0 +1,54 @@
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .login-box {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideIn 1.5s ease forwards;
+        }
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .cartoon {
+            width: 100px;
+            height: 100px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -50px;
+            left: calc(50% - 50px);
+            animation: bounce 1.5s ease forwards;
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }

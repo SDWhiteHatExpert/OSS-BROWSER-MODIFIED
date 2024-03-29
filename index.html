@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><OSS-BROWSER>
+        
+    </OSS-BROWSER></title>
+</head>
+<body>
+    <title>OSS-BROWSER</title>
+    <script type ="app.js"
+    src = "https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> 
+    <?php include 'header.php';?>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download Example</title>
+</head>
+<body>
+    <h1>File Download Example</h1>
+    <button id="downloadButton">Download File</button>
+
+    <script>
+        // Function to trigger file download
+        function downloadFile() {
+            // Content of the file
+            const fileContent = 'This is the content of the file.';
+
+            // Create a Blob containing the file content
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+
+            // Create a temporary URL for the Blob
+            const url = URL.createObjectURL(blob);
+
+            // Create a link element
+            const link = document.createElement('a');
+            link.href = url;
+
+            // Specify the filename for the downloaded file
+            link.download = 'example.txt';
+
+            // Simulate a click on the link to trigger the download
+            link.click();
+
+            // Clean up by revoking the URL object
+            URL.revokeObjectURL(url);
+        }
+
+        // Event listener for the download button
+        document.getElementById('downloadButton').addEventListener('click', downloadFile);
+    </script>
+</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .settings-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .setting {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Browser Settings</h1>
+        <div class="setting">
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <div class="setting">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+        <div class="setting">
+            <label for="notifications">Notifications:</label>
+            <input type="checkbox" id="notifications">
+        </div>
+        <button onclick="saveSettings()">Save Settings</button>
+    </div>
+
+    <script>
+        function saveSettings() {
+            const theme = document.getElementById('theme').value;
+            const language = document.getElementById('language').value;
+            const notifications = document.getElementById('notifications').checked;
+
+            // For demonstration purposes, you can console log or send these settings to a server
+            console.log('Theme:', theme);
+            console.log('Language:', language);
+            console.log('Notifications:', notifications);
+
+            // You can implement saving settings functionality here
+            // For a real browser settings menu, you would save these settings using appropriate methods (e.g., localStorage, server-side storage)
+            // You can also apply the settings to the UI if needed
+        }
+    </script>
+</body>
+</html>
+
+</html>
+
+    
+    <div class="container">
+        <h2>文件列表:<?php echo $dir;?></h2>
+        <table id='file_list' class ="table" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th><h2>
+                        <code>OSS-BROWSER
+                            <link rel="stylesheet" href="style.css">
+                        </code>
+                        </h2>
+                        <address= align-container>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error nihil illum, optio ipsum neque doloribus amet maiores rem nesciunt, assumenda recusandae minus animi, ullam tempora repellendus odit quaerat aliquid aperiam.
+                            <hgroup>
+                                <label for="main.js'consectetur">
+                                    Current Folder：<datagrid>
+
+                                        <del>
+                                            <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>"><button type="button
+                                            
+                                            <?php echo $dir; ?>
+                                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Integration</title>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <h1>Image Classification with AI</h1>
+    <input type="file" accept="image/*" id="imageUpload" onchange="classifyImage()">
+    <div id="output"></div>
+
+    <script>
+        async function classifyImage() {
+            const imageUpload = document.getElementById('imageUpload');
+            const outputDiv = document.getElementById('output');
+            
+            // Load the pre-trained MobileNet model
+            const model = await tf.loadLayersModel('https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v2_130_224/classification/3/default/1');
+
+            // Read and preprocess the uploaded image
+            const file = imageUpload.files[0];
+            const image = await readImage(file);
+            const preprocessedImage = preprocessImage(image);
+
+            // Make predictions
+            const predictions = await model.predict(preprocessedImage);
+
+            // Display predictions
+            const topPredictions = Array.from(predictions[0])
+                .map((prob, index) => ({ probability: prob, className: IMAGENET_CLASSES[index] }))
+                .sort((a, b) => b.probability - a.probability)
+                .slice(0, 5);
+
+            outputDiv.innerHTML = '';
+            topPredictions.forEach(prediction => {
+                outputDiv.innerHTML += `<div>${prediction.className}: ${Math.round(prediction.probability * 100)}%</div>`;
+            });
+        }
+
+        async function readImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const image = new Image();
+                    image.onload = () => resolve(tf.browser.fromPixels(image));
+                    image.src = reader.result;
+                };
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function preprocessImage(image) {
+            // Resize and normalize the image
+            const resizedImage = tf.image.resizeBilinear(image, [224, 224]);
+            const normalizedImage = resizedImage.div(tf.scalar(127.5)).sub(tf.scalar(1));
+            return normalizedImage.expandDims();
+        }
+
+        // ImageNet classes
+        const IMAGENET_CLASSES = {
+            0: 'tench, Tinca tinca',
+            1: 'goldfish, Carassius auratus',
+            2: 'great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias',
+            // Add more classes as needed
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+                                        </del>
+                                        </del>
+                                    </datagrid>
+                                </label>
+                            </hgroup>
+                        </address>
+                        </code>
+                    </h2></th>
+                </tr>
+            </thead>
+        </table>
+        ='table table-striped'>
+        <tr>
+            <th>名称</th>
+            <th>大小(KB)</th>
+            <th>修改时间</th>
+
+            <var> path = require("path")
+                , url = require('url')
+                , querystring = require('querystring')
+
+            </var>
+
+        </tr>
+    </table>
+
+</body>
+</html>
